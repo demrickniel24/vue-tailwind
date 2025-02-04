@@ -49,17 +49,19 @@ const removeItem = (id) => {
 
 <template>
   <div class="min-h-screen bg-gray-100">
-    <header class="bg-blue-500 text-white py-4 shadow-md">
+    <header class="bg-primary text-white py-4 shadow-md">
       <div class="container mx-auto flex items-center justify-between px-4">
         <div class="text-xl font-semibold">My Tailwind Vue App</div>
-        <button class="bg-white text-blue-500 px-4 py-2 rounded-md shadow hover:bg-gray-200" @click="openAddModal">
+        <button class="bg-white text-primary px-4 py-2 rounded-md shadow hover:bg-gray-200" @click="openAddModal">
           Add Item
         </button>
       </div>
     </header>
 
     <main class="flex justify-center items-center py-10">
-      <div class="flex flex-wrap gap-4 justify-center">
+      <div class="grid gap-4 justify-center 
+                  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+                  px-4">
         <Card v-for="item in items" :key="item.id" :item="item" @update-item="openUpdateModal" @remove-item="removeItem"/>
       </div>
     </main>
